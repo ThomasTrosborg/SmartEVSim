@@ -1,0 +1,97 @@
+[project]
+name = "smartevsim"
+version = "0.1.0"
+description = "This repository contains the code to simulate coordination of EV clusters for the purpose of testing control algorithms."
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+license = { text = "LICENSE" }
+authors = [{ name = "Thomas Reenberg Trosborg" }]
+dependencies = [
+  "gurobipy<13.0",
+  "matplotlib",
+  "numpy>=1.26,<3.0",
+  "pandas>=2.2,<3.0",
+  "plotly",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "mypy>=1.8",
+  "ruff>=0.6",
+  "pre-commit>=3.7",
+  "types-setuptools",
+]
+
+[project.urls]
+Homepage = "https://github.com/ThomasTrosborg/SmartEVSim"
+Repository = "https://github.com/ThomasTrosborg/SmartEVSim"
+Issues = "https://github.com/ThomasTrosborg/SmartEVSim/issues"
+
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+# -----------------------
+# Ruff: lint + format
+# -----------------------
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+exclude = [".venv", "build", "dist"]
+
+[tool.ruff.lint]
+select = [
+  "E", "F", "W",      # pycodestyle/pyflakes
+  "I",               # import sorting
+  "B",               # bugbear
+  "UP",              # pyupgrade
+  "SIM",             # simplify
+  "C4",              # comprehensions
+  "N",               # pep8-naming
+]
+ignore = [
+  "E203",            # conflicts with formatter slicing
+  "N803", "N806",    # allow x/y style vars in math code
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+# -----------------------
+# MyPy
+# -----------------------
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "src"
+packages = ["your_project_name"]  # change to your import package
+strict = true
+warn_unused_configs = true
+disallow_any_generics = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unreachable = true
+show_error_codes = true
+
+# If you use libraries without type hints, you can relax per-module:
+[[tool.mypy.overrides]]
+module = ["pandas", "pandas.*", "plotly", "plotly.*", "yaml"]
+ignore_missing_imports = true
+
+# -----------------------
+# Pytest
+# -----------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+  "-q",
+  "--strict-markers",
+  "--disable-warnings",
+  "--maxfail=1",
+]

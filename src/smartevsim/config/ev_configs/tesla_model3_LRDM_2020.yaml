@@ -1,0 +1,7 @@
+p_max_kw: 11.09 # 16 A on 3 phases
+battery_capacity_kwh: 78.1
+ramp_up_kw_pr_s: 0.73
+ramp_down_kw_pr_s: 552.0
+efficiency: {6.0: 0.8902, 8.0: 0.9046, 10.0: 0.9117, 12.0: 0.9162, 14.0: 0.9170, 16.0: 0.9187}
+actuation_delay_s: 0.02
+wake_up_delay_s: 2.0
