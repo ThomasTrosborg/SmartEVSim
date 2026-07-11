@@ -1,4 +1,4 @@
-"""Per-EV charging controllers and silent-consensus variants."""
+"""Per-EV charging controllers."""
 
 import logging
 import math

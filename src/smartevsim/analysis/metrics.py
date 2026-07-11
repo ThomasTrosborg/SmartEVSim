@@ -514,30 +514,7 @@ def _format_list(values: list[float], formatter) -> str:
     return ", ".join(formatter(value) for value in values)
 
 if __name__ == "__main__":
-
-    """"case study silent consensus configs"""
-    # results_path = "results/case_study/test_0_SC.csv"
-    # results_path = "results/case_study/test_1_SC.csv"
-    # results_path = "results/case_study/test_2_SC.csv"
-    # results_path = "results/case_study/test_3_SC.csv"
-    # results_path = "results/case_study/test_4_SC.csv"
-    # results_path = "results/case_study/test_4_SC copy.csv"
-    # results_path = "results/case_study/test_4_SC copy 2.csv"
-    # results_path = "results/case_study/test_5_SC_30.csv"
-    # results_path = "results/case_study/test_5_SC_100.csv"
-    # results_path = "results/case_study/test_5_SC_1000.csv"
-
-    """"case study centralized configs"""
-    results_path = "results/case_study/test_0_Central.csv"
-    # results_path = "results/case_study/test_1_Central.csv"
-    # results_path = "results/case_study/test_2_Central.csv"
-    # results_path = "results/case_study/test_3_Central.csv"
-    # results_path = "results/case_study/test_4_Central.csv"
-    # results_path = "results/case_study/test_4_Central copy.csv"
-    # results_path = "results/case_study/test_4_Central copy 2.csv"
-    # results_path = "results/case_study/test_5_Central.csv"
-
-    # results_path = "results/test_default_1.csv"
+    results_path = "results/centralized_config.csv"
     df = load_records(results_path)
     consensus_dfs, metrics = compute_metrics(
         df,
