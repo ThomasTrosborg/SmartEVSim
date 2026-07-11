@@ -6,8 +6,8 @@ from smartevsim.utils.logging import setup_logging
 
 
 if __name__ == "__main__":
-    # config_path = "default_config.yaml"
-    config_path = "centralized_config.yaml"
+    # config_path = "config/distributed_config.yaml"
+    config_path = "config/centralized_config.yaml"
 
     name = Path(config_path).stem
     records_path = f"results/{name}.csv"
